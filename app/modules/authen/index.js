@@ -1,6 +1,8 @@
 import { login, logout } from './controller';
 
-module.exports = (router) => {
+const authen = (router) => {
   router.route('/login').post(login);
   router.route('/logout').put(logout);
 }
+
+export default authen;

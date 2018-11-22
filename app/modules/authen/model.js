@@ -3,8 +3,8 @@ import mongoose from 'mongoose';
 const Schema = mongoose.Schema;
 
 export const authen = {
-  username: String,
+  email: String,
   password: String,
 }
 
-export default mongoose.model('Authenication', Schema(authen));
+export default mongoose.model('authen', Schema(authen));

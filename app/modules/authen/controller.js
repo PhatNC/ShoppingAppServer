@@ -1,11 +1,14 @@
-export const login = ({ body: { username, password } }, res) => {
-  let result = { status: 0, msg: 'Login failure' };
+import db from '../../helpers/connection';
+import { LOGIN_FAILURE } from '../../constants/errorcode';
 
-  if (username === 'duyetvv' && password === '111111') {
-    result = { status: 1, msg: 'Login success' };
-  }
-
-  res.json(result);
+export const login = ({ body: { email, password } }, res) => {
+  db.getOne('account', { email, password })
+  .then((data) => {
+    res.json(data);
+  })
+  .catch((error) => {
+    res.json(error);
+  })
 }
 
 export const logout = ({ bearer }, res) => {
