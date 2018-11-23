@@ -1,15 +1,13 @@
-import mongoose from 'mongoose';
-
+const mongoose = require('../../helpers/connection');
 const Schema = mongoose.Schema;
 
-export const billDetail = {
+export const billDetailSchema = Schema({
     billID: { type: String, required: true },
-    productID: { Currency },
+    productID: { type: String, required: true },
     quatity: { type: Number, min: 1, default: 1 },
     createDate: { type: Date, default: Date.now },
     createAccount: String,
     updateDate: { type: Date, default: Date.now },
     updateAccount: String,
-}
-
-export default mongoose.model('billDetail', Schema(billDetail));
+})
+module.exports = mongoose.model('BillDetail', Schema(billDetailSchema));

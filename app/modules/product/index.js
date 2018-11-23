@@ -1,11 +1,10 @@
-var express = require('express');
-var router = express.Router();
-// var person = require('../controllers/personController.js');
+const express = require('express');
+const router = express.Router();
 
 import * as productController from './controller';
-var url = require('url');
+const url = require('url');
 
-var app = express();
+const app = express();
 
 //post send data to store
 

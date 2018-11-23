@@ -1,8 +1,9 @@
-import mongoose from 'mongoose';
-
+const mongoose = require('../../helpers/connection');
 const Schema = mongoose.Schema;
 
-export const shopInfo = {
+//create new model
+
+const shopSchema = Schema({
     name: { type: String, minlength: 6, maxlength: 50, required: true },
     address: { type: String, required: true },
     phone: { type: String },
@@ -11,6 +12,5 @@ export const shopInfo = {
     createAccount: String,
     updateDate: { type: Date, default: Date.now },
     updateAccount: String,
-}
-
-export default mongoose.model('shopInfo', Schema(shopInfo));
+});
+module.exports = mongoose.model('Shop', shopSchema);

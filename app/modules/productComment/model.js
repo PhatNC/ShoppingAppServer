@@ -1,8 +1,7 @@
-import mongoose from 'mongoose';
-
+const mongoose = require('../../helpers/connection');
 const Schema = mongoose.Schema;
 
-export const productComment = {
+export const productCommentSchema = Schema({
     productID: { type: String, required: true },
     accountID: { type: String, required: true },
     comment: { type: String, maxlength: 3000 },
@@ -10,6 +9,5 @@ export const productComment = {
     createAccount: String,
     updateDate: { type: Date, default: Date.now },
     updateAccount: String,
-}
-
-export default mongoose.model('productComment', Schema(productComment));
+})
+module.exports = mongoose.model('Comment', Schema(productCommentSchema));

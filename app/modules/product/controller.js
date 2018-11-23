@@ -5,8 +5,7 @@ export function getProducts(req, res) {
     const condition = req.query;
     condition.name = new RegExp(condition.name, 'i');
     console.log(req.query);
-    Product
-        .find({ ...condition, ...{ enableFlg: 1 } }, function (err, products) {
+    Product.find({ ...condition, ...{ enableFlg: 1 } }, function (err, products) {
             if (err) throw err;
             res.send(products);
         });
@@ -14,7 +13,7 @@ export function getProducts(req, res) {
 
 // Add new Product
 export function addProduct(req, res) {
-    var productInfo = req.body;
+    const productInfo = req.body;
     console.log(req.body);
 
     if (!productInfo) {
@@ -37,7 +36,7 @@ export function addProduct(req, res) {
 // Update product by ID
 export function updateProduct(req, res) {
     const id = req.query._id;
-    var productInfo = req.body;
+    const productInfo = req.body;
 
     if (!productInfo) {
         console.log('========================')

@@ -1,67 +1,34 @@
-var bodyParser = require('body-parser');
-var multer = require('multer');
-var express = require('express');
+const bodyParser = require('body-parser');
+const multer = require('multer');
+const express = require('express');
 
-var app = express();
-var upload = multer();
-
-// var connect = require('./connection.js');
-// var person = require('./routers/person.js');
-// var author = require('./routers/author.js');
-
-// app.set('view engine', 'pug');
-// app.set('views', './views');
+const app = express();
+const upload = multer();
 
 import product from './modules/product';
+import account from './modules/account';
+import authen from './modules/authen';
+import bill from './modules/bill';
+import billDetail from './modules/billDetail';
+import favoriteProduct from './modules/favoriteProduct';
+import main from './modules/main';
+import productCategory from './modules/productCategory';
+import productComment from './modules/productComment';
+import shopInfo from './modules/shopInfo';
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(upload.array());
 
-
-// app.use('/person', person);
-// app.use('/author', author);
-
-app.use('/product', product)
-
-
-// app.set('view engine', 'pug');
-// app.get('/', function(req, res){ 
-//     res.render('index',{user: "Great User",title:"homepage"});
-// });
-
-
+app.use('/product', product);
+app.use('/account', account);
+app.use('/authen', authen);
+app.use('/bill', bill);
+app.use('/billDetail', billDetail);
+app.use('/favoriteProduct', favoriteProduct);
+app.use('/main', main);
+app.use('/productCategory', productCategory);
+app.use('/productComment', productComment);
+app.use('/shopInfo', shopInfo);
 
 app.listen(3000);
-
-
-// import rootRoute from './routes/index';
-
-// // import path from 'path';
-// import cors from 'cors';
-// import express from 'express';
-// import bodyParser from 'body-parser';
-// import compression from 'compression';
-// const app = express();
-// const router = express.Router();
-
-// import product from './modules/product';
-
-// // app.use(express.static(path.join(__dirname, 'app')))
-// app.use(cors());
-// app.use(compression());
-// app.use(bodyParser.urlencoded({ extended: true }));
-// app.use(bodyParser.json());
-
-// // rootRoute(router);
-
-// // console.log('Root Route', JSON.stringify(rootRoute));
-
-// app.use('/product', product);
-
-// app.use('/api', router);
-// app.listen(process.env.PORT || 80, () => {
-//   console.log('API listening on port 80!')
-// })
-
-// module.exports = app;

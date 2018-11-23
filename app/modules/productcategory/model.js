@@ -1,15 +1,15 @@
-import mongoose from 'mongoose';
-
+const mongoose = require('../../helpers/connection');
 const Schema = mongoose.Schema;
 
-export const productCategory = {
+//create new model
+
+const productCategorySchema = Schema({
     categoryID: { type: String, required: true },
-    name: { type: String, minlength: 6, maxlength: 50 },
+    name: { type: String, minlength: 6, maxlength: 50, required: true },
     description: { type: String, maxlength: 255 },
     createDate: { type: Date, default: Date.now },
     createAccount: String,
     updateDate: { type: Date, default: Date.now },
     updateAccount: String,
-}
-
-export default mongoose.model('productCategory', Schema(productCategory));
+});
+module.exports = mongoose.model('Category', productCategorySchema);
