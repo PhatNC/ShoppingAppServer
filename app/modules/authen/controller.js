@@ -1,14 +1,11 @@
-import db from '../../helpers/connection';
-import { LOGIN_FAILURE } from '../../constants/errorcode';
+import mongoose from '../../helpers/connection';
+import Account from './model';
 
 export const login = ({ body: { email, password } }, res) => {
-  db.getOne('account', { email, password })
-  .then((data) => {
-    res.json(data);
-  })
-  .catch((error) => {
-    res.json(error);
-  })
+  Account.findOne(body, function (err, account) {
+    if (err) throw err;
+    res.send(account);
+  });
 }
 
 export const logout = ({ bearer }, res) => {
