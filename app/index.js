@@ -7,7 +7,6 @@ const upload = multer();
 
 import product from './modules/product';
 import account from './modules/account';
-import authen from './modules/authen';
 import bill from './modules/bill';
 import billDetail from './modules/billDetail';
 import favoriteProduct from './modules/favoriteProduct';
@@ -21,14 +20,14 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(upload.array());
 
 app.use('/product', product);
+// app.use('/account', account);
 app.use('/account', account);
-app.use('/authen', authen);
-app.use('/bill', bill);
-app.use('/billDetail', billDetail);
-app.use('/favoriteProduct', favoriteProduct);
-app.use('/main', main);
-app.use('/productCategory', productCategory);
-app.use('/productComment', productComment);
-app.use('/shopInfo', shopInfo);
+// app.use('/bill', bill);
+// app.use('/billDetail', billDetail);
+// app.use('/favoriteProduct', favoriteProduct);
+// app.use('/main', main);
+// app.use('/productCategory', productCategory);
+// app.use('/productComment', productComment);
+// app.use('/shopInfo', shopInfo);
 
 app.listen(3000);

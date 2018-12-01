@@ -1,27 +1,15 @@
-const account = (router) => {
+const express = require('express');
+const router = express.Router();
 
-  router.route('/add')
-  .post(({ body: { username, password } }, res) => {
-    let result = { status: 0, msg: 'Login failure' };
+import * as accountController from './controller';
+const url = require('url');
 
-    if (username === 'duyetvv' && password === '111111') {
-      result = { status: 1, msg: 'Login success' };
-    }
-
-    res.json(result);
-  });
-
-  router.route('/update')
-  .put(({ bearer }, res) => {
-    let result = { status: 0, msg: 'Logout failure' };
-
-    if (bearer) {
-      result = { status: 1, msg: 'Logout success' };
-    }
-
-    res.json(result);
-  });
-}
+const app = express();
 
 
-export default account;
+router.post('/login', accountController.login);
+// router.put('/logout', accountController.logout);
+router.post('/', accountController.addAccount);
+
+
+module.exports = router;
